@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="vuesax_bulk_monitor-recorder" data-name="vuesax/bulk/monitor-recorder" transform="translate(-492 -188)">
+    <g id="monitor-recorder">
+      <path id="Vector" d="M18.97,4.19v6.18H0V4.19A4.2,4.2,0,0,1,4.19,0H14.78A4.2,4.2,0,0,1,18.97,4.19Z" transform="translate(494 191)" fill="#292d32" opacity="0.4"/>
+      <path id="Vector-2" data-name="Vector" d="M0,0V.19A4.189,4.189,0,0,0,4.19,4.38h3.6a1,1,0,0,1,1,1V6.2a1,1,0,0,1-1,1H5.53a.71.71,0,1,0,0,1.42h7.93a.71.71,0,1,0,0-1.42H11.21a1,1,0,0,1-1-1V5.38a1,1,0,0,1,1-1h3.57A4.189,4.189,0,0,0,18.97.19V0Z" transform="translate(494 201.37)" fill="#292d32"/>
+      <path id="Vector-3" data-name="Vector" d="M8.99,1.34l-1.13.79V1.71A1.709,1.709,0,0,0,6.15,0H1.87A1.859,1.859,0,0,0,0,1.86V5.14A1.565,1.565,0,0,0,1.71,6.85H6.14A1.709,1.709,0,0,0,7.85,5.14V4.71l1.13.79c.57.39,1.02.15,1.02-.53V1.87C10,1.19,9.55.96,8.99,1.34Z" transform="translate(505 189.02)" fill="#292d32"/>
+      <path id="Vector-4" data-name="Vector" d="M0,0H24V24H0Z" transform="translate(492 188)" fill="none" opacity="0"/>
+    </g>
+  </g>
+</svg>

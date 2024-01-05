@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="vuesax_outline_toggle-off-circle" data-name="vuesax/outline/toggle-off-circle" transform="translate(-108 -254)">
+    <g id="toggle-off-circle">
+      <path id="Vector" d="M12.75,17.5h-4A8.75,8.75,0,0,1,8.75,0h4a8.75,8.75,0,0,1,0,17.5Zm-4-16a7.25,7.25,0,0,0,0,14.5h4a7.25,7.25,0,0,0,0-14.5Z" transform="translate(109.25 257.25)" fill="#292d32"/>
+      <path id="Vector-2" data-name="Vector" d="M4.75,9.5A4.75,4.75,0,1,1,9.5,4.75,4.754,4.754,0,0,1,4.75,9.5Zm0-8A3.25,3.25,0,1,0,8,4.75,3.256,3.256,0,0,0,4.75,1.5Z" transform="translate(113.25 261.25)" fill="#292d32"/>
+      <path id="Vector-3" data-name="Vector" d="M0,0H24V24H0Z" transform="translate(108 254)" fill="none" opacity="0"/>
+    </g>
+  </g>
+</svg>

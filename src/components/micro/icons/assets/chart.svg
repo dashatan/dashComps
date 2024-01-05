@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36.826" height="36.826" viewBox="0 0 36.826 36.826">
+  <g id="vuesax_bulk_chart" data-name="vuesax/bulk/chart" transform="translate(-428 -252)">
+    <g id="chart" transform="translate(428 252)">
+      <g id="chart-2" data-name="chart">
+        <path id="Vector" d="M0,0H36.826V36.826H0Z" fill="none" opacity="0"/>
+        <g id="Group" transform="translate(3.452 32.606)">
+          <path id="Vector-2" data-name="Vector" d="M28.77,2.3H1.151A1.159,1.159,0,0,1,0,1.151,1.159,1.159,0,0,1,1.151,0H28.77a1.159,1.159,0,0,1,1.151,1.151A1.159,1.159,0,0,1,28.77,2.3Z" fill="#a3a3a3" opacity="0.4"/>
+        </g>
+        <g id="Group-2" data-name="Group" transform="translate(4.603 3.069)">
+          <path id="Vector-3" data-name="Vector" d="M3.989,0H1.534A1.539,1.539,0,0,0,0,1.534V14.761A1.539,1.539,0,0,0,1.534,16.3H3.989a1.539,1.539,0,0,0,1.534-1.534V1.534A1.529,1.529,0,0,0,3.989,0Z" transform="translate(0 9.79)" fill="#a3a3a3"/>
+          <path id="Vector-4" data-name="Vector" d="M3.989,0H1.534A1.539,1.539,0,0,0,0,1.534V19.656A1.539,1.539,0,0,0,1.534,21.19H3.989a1.539,1.539,0,0,0,1.534-1.534V1.534A1.539,1.539,0,0,0,3.989,0Z" transform="translate(11.048 4.895)" fill="#a3a3a3"/>
+          <path id="Vector-5" data-name="Vector" d="M3.989,0H1.534A1.539,1.539,0,0,0,0,1.534V24.55a1.539,1.539,0,0,0,1.534,1.534H3.989A1.539,1.539,0,0,0,5.524,24.55V1.534A1.539,1.539,0,0,0,3.989,0Z" transform="translate(22.095)" fill="#a3a3a3"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

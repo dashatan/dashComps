@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="17.474" height="17.474" viewBox="0 0 17.474 17.474">
+  <g id="vuesax_bulk_electricity" data-name="vuesax/bulk/electricity" transform="translate(-172 -380)">
+    <g id="electricity" transform="translate(172 380)">
+      <path id="Vector" d="M0,0H17.474V17.474H0Z" fill="none" opacity="0"/>
+      <path id="Vector-2" data-name="Vector" d="M2.905,8.009H5.089A2.789,2.789,0,0,0,8,5.1V1.391A1.4,1.4,0,0,0,6.611,0H1.391A1.4,1.4,0,0,0,0,1.391V5.1A2.779,2.779,0,0,0,2.905,8.009Z" transform="translate(4.74 3.64)" fill="#eb4c11" opacity="0.4"/>
+      <path id="Vector-3" data-name="Vector" d="M1.092.546V2.73H0V.546A.55.55,0,0,1,.546,0,.55.55,0,0,1,1.092.546Z" transform="translate(6.371 0.91)" fill="#eb4c11"/>
+      <path id="Vector-4" data-name="Vector" d="M1.092.546V2.73H0V.546A.55.55,0,0,1,.546,0,.55.55,0,0,1,1.092.546Z" transform="translate(10.011 0.91)" fill="#eb4c11"/>
+      <path id="Vector-5" data-name="Vector" d="M1.092,0V4.368a.55.55,0,0,1-.546.546A.55.55,0,0,1,0,4.368V0Z" transform="translate(8.191 11.649)" fill="#eb4c11"/>
+    </g>
+  </g>
+</svg>

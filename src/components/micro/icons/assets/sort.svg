@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="25.5" height="25.5" viewBox="0 0 25.5 25.5">
+  <g id="Group_2393" data-name="Group 2393" transform="translate(-1590.008 -720.496)">
+    <path id="Vector" d="M15.077,0h-8.9C2.306,0,0,2.306,0,6.173v8.893c0,3.878,2.306,6.184,6.173,6.184h8.893c3.868,0,6.173-2.306,6.173-6.173v-8.9C21.25,2.306,18.945,0,15.077,0Z" transform="translate(1592.138 722.621)" fill="#909091" opacity="0.4"/>
+    <path id="Vector-2" data-name="Vector" d="M2.808,3.3a.487.487,0,0,1-.348-.144L.143.839a.492.492,0,1,1,.7-.7l1.97,1.97L4.778.143a.492.492,0,0,1,.7.7L3.156,3.156A.487.487,0,0,1,2.808,3.3Z" transform="translate(1599.95 735.417)" fill="#909091"/>
+    <path id="Vector-3" data-name="Vector" d="M5.126,3.3a.487.487,0,0,1-.348-.144l-1.97-1.97L.839,3.156a.492.492,0,0,1-.7-.7L2.46.143a.5.5,0,0,1,.7,0L5.474,2.46a.5.5,0,0,1,0,.7A.487.487,0,0,1,5.126,3.3Z" transform="translate(1599.95 727.774)" fill="#909091"/>
+    <path id="Vector-4" data-name="Vector" d="M0,0H25.5V25.5H0Z" transform="translate(1590.008 720.496)" fill="none" opacity="0"/>
+  </g>
+</svg>

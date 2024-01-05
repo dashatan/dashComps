@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="vuesax_bulk_note-text" data-name="vuesax/bulk/note-text" transform="translate(-748 -316)">
+    <g id="note-text">
+      <path id="Vector" d="M0,0H24V24H0Z" transform="translate(748 316)" fill="none" opacity="0"/>
+      <g id="Group">
+        <path id="Vector-2" data-name="Vector" d="M.75,4.5A.755.755,0,0,1,0,3.75v-3A.755.755,0,0,1,.75,0,.755.755,0,0,1,1.5.75v3A.755.755,0,0,1,.75,4.5Z" transform="translate(755.25 317.25)" fill="#292d32"/>
+      </g>
+      <g id="Group-2" data-name="Group">
+        <path id="Vector-3" data-name="Vector" d="M.75,4.5A.755.755,0,0,1,0,3.75v-3A.755.755,0,0,1,.75,0,.755.755,0,0,1,1.5.75v3A.755.755,0,0,1,.75,4.5Z" transform="translate(763.25 317.25)" fill="#292d32"/>
+      </g>
+      <path id="Vector-4" data-name="Vector" d="M18,5v8.5c0,3-1.5,5-5,5H5c-3.5,0-5-2-5-5V5C0,2,1.5,0,5,0h8C16.5,0,18,2,18,5Z" transform="translate(751 319.5)" fill="#292d32" opacity="0.4"/>
+      <g id="Group-3" data-name="Group">
+        <path id="Vector-5" data-name="Vector" d="M8.75,1.5h-8A.755.755,0,0,1,0,.75.755.755,0,0,1,.75,0h8A.755.755,0,0,1,9.5.75.755.755,0,0,1,8.75,1.5Z" transform="translate(755.25 326.25)" fill="#292d32"/>
+      </g>
+      <g id="Group-4" data-name="Group">
+        <path id="Vector-6" data-name="Vector" d="M4.75,1.5h-4A.755.755,0,0,1,0,.75.755.755,0,0,1,.75,0h4A.755.755,0,0,1,5.5.75.755.755,0,0,1,4.75,1.5Z" transform="translate(755.25 331.25)" fill="#292d32"/>
+      </g>
+    </g>
+  </g>
+</svg>
