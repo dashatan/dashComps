@@ -15,3 +15,6 @@ export type SelectItem = {
 export type TreeSelectItem = SelectItem & {
   children?: TreeSelectItem[];
 };
+export type FlatTreeSelectItem = SelectItem & {
+  parentId?: string | number;
+};

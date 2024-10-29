@@ -1,10 +1,14 @@
-import { Circle, CircleDot, Dot } from "lucide-react";
+import { Dot } from "lucide-react";
 import { classNames } from "@/utils";
+import { ReactNode } from "react";
 
 export interface StatusBoxProps {
-  text: string;
+  text: string | ReactNode;
   color?: "primary" | "secondary" | "success" | "warning" | "error" | "info";
   onClick?: () => void;
+  icon?: React.ReactNode;
+  className?: string;
+  textClassName?: string;
 }
 
 export default function StatusBox(props: StatusBoxProps) {
@@ -15,20 +19,27 @@ export default function StatusBox(props: StatusBoxProps) {
     >
       <div
         className={classNames(
-          "h-10 px-4 min-w-28 text-sm font-medium border rounded-md flex items-center  text-center whitespace-nowrap relative",
+          "relative flex h-10 min-w-28 items-center whitespace-nowrap rounded-md border px-4 text-center text-sm font-medium",
           {
-            "bg-primary-50 border-primary-100": props.color === "primary",
-            "bg-secondary-50 border-secondary-100": props.color === "secondary",
-            "bg-success-50 border-success-100": props.color === "success",
-            "bg-error-50 border-error-100": props.color === "error",
-            "bg-warning-50 border-warning-100": props.color === "warning",
-            "bg-slate-100 border-slate-200": [undefined, "info"].includes(props.color),
-          }
+            "border-primary-200 bg-primary-50 [&_*]:fill-primary-300 [&_*]:stroke-primary-400":
+              props.color === "primary",
+            "border-secondary-200 bg-secondary-50 [&_*]:fill-secondary-300 [&_*]:stroke-secondary-400":
+              props.color === "secondary",
+            "border-success-200 bg-success-50 [&_*]:fill-success-300 [&_*]:stroke-success-400":
+              props.color === "success",
+            "border-error-200 bg-error-50 [&_*]:fill-error-300 [&_*]:stroke-error-400": props.color === "error",
+            "border-warning-200 bg-warning-50 [&_*]:fill-warning-300 [&_*]:stroke-warning-400":
+              props.color === "warning",
+            "border-slate-200 bg-slate-100 [&_*]:fill-slate-300 [&_*]:stroke-slate-400": [undefined, "info"].includes(
+              props.color,
+            ),
+          },
+          props.className,
         )}
       >
         {props.onClick && (
           <Dot
-            className={classNames("scale-[2] absolute right-1", {
+            className={classNames("absolute right-1 scale-[2]", {
               "text-primary-400": props.color === "primary",
               "text-secondary-400": props.color === "secondary",
               "text-success-400": props.color === "success",
@@ -38,7 +49,8 @@ export default function StatusBox(props: StatusBoxProps) {
             })}
           />
         )}
-        <span className="w-full right-0">{props.text}</span>
+        <span className={classNames("right-0 w-full", props.textClassName)}>{props.text}</span>
+        {props.icon}
       </div>
     </div>
   );

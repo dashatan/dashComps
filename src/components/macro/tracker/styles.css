@@ -1,0 +1,84 @@
+/* --------------------------------- LAYOUT --------------------------------- */
+#tracker-map .leaflet-bottom.leaflet-left {
+  @apply w-[calc(100%_-_24px)] p-3 dir-ltr;
+}
+#tracker-map .leaflet-bottom.leaflet-left .leaflet-control {
+  @apply rounded-md border-none p-4;
+}
+#tracker-map .leaflet-bar.leaflet-bar-horizontal.leaflet-bar-timecontrol.leaflet-control {
+  @apply flex !w-full flex-col;
+}
+
+#tracker-control-container {
+  @apply order-1 flex w-full items-center gap-2 pb-4;
+}
+#tracker-control-container:first-child {
+  @apply hidden;
+}
+
+/* --------------------------------- Player Buttons -------------------------------- */
+#tracker-map .leaflet-control-timecontrol.timecontrol-forward {
+  @apply hidden;
+}
+#tracker-map .leaflet-control-timecontrol.timecontrol-backward {
+  @apply hidden;
+}
+#tracker-play-button {
+  @apply hidden;
+}
+
+/* ------------------------------ Speed Slider ----------------------------- */
+#tracker-speed-slider {
+  @apply order-3 flex h-10 w-52 cursor-default items-center justify-start gap-2 rounded-md !border !border-gray-300 bg-gray-50 px-2 hover:bg-gray-100;
+  .slider {
+    @apply -top-0.5 left-2 mx-4 h-1 !w-32 border-none bg-gray-200;
+  }
+  .slider .knob {
+    @apply h-4 w-4 cursor-pointer rounded-full rounded-md bg-gray-800;
+  }
+  .speed {
+    @apply hidden w-8;
+  }
+}
+
+#tracker-speed-slider::after {
+  @apply font-main;
+  content: "200X";
+}
+#tracker-speed-slider::before {
+  @apply font-main;
+  content: "1X";
+}
+
+/* ------------------------------ Time Slider ------------------------------ */
+#tracker-time-slider {
+  @apply relative order-2 !h-auto rounded-md border-none bg-gray-50 px-2.5 hover:bg-gray-100;
+  border: 1px solid var(--color-gray-300);
+  .slider {
+    @apply z-10 m-0 h-14 w-full border-none;
+  }
+  .knob.main {
+    @apply -left-1.5 top-1.5 h-5 w-5 cursor-pointer border-none bg-primary-600;
+    clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%);
+  }
+  .knob.main::after {
+    /* @apply w-px h-9 top-5 left-2.5 bg-primary-600 border-none cursor-pointer; */
+  }
+}
+
+.time-slider-thumb-arrow {
+  clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%);
+}
+.time-slider-thumb::before {
+  @apply h-10 w-1 bg-primary-600;
+}
+span:has(> .time-slider-thumb) {
+  z-index: 10;
+}
+
+.car-icon {
+  svg {
+    position: absolute;
+    left: -5px;
+  }
+}

@@ -11,7 +11,7 @@ export const tablePT: DataTablePassThroughOptions = {
     sortIcon: { className: classNames("mx-2 text-gray-700") },
     headerCell: ({ context, props }: any) => ({
       className: classNames(
-        "text-right border-t border-b border-gray-100 font-semibold first:border-r last:border-l",
+        "text-right border-t border-b border-gray-100 font-semibold first:border-s last:border-e",
         "transition duration-200 text-gray-700 bg-gray-100",
         context?.size === "small" ? "p-2" : context?.size === "large" ? "p-5" : "py-2 px-4", // Size
         context.sorted ? "bg-gray-200" : "", // Sort
@@ -20,16 +20,16 @@ export const tablePT: DataTablePassThroughOptions = {
           "border-x border-y": context?.showGridlines,
           "overflow-hidden space-nowrap border-y relative bg-clip-padding": context.resizable, // Resizable
           "cursor-pointer": props.sortable, // Sortable
-        }
+        },
       ),
     }),
     bodyCell: ({ props, context }: any) => ({
       className: classNames(
-        "bg-transparent text-gray-700 text-right !border-r-0 !border-l-0 !rounded-none !border-b py-0 px-4",
+        "bg-transparent text-gray-700 text-right !border-r-0 !border-e-0 !rounded-none !border-b py-0 px-4",
         {
           "sticky bg-inherit": props?.frozen || props?.frozen === "", // Frozen Columns
           "border-x border-y": context.showGridlines,
-        }
+        },
       ),
     }),
     filterMenuButton: ({ context }: any) => ({
@@ -40,7 +40,7 @@ export const tablePT: DataTablePassThroughOptions = {
         " hover:bg-gray-200", // Hover
         {
           "bg-gray-200": context.active,
-        }
+        },
       ),
     }),
   },
@@ -55,7 +55,7 @@ export const tablePT: DataTablePassThroughOptions = {
     root: {
       className: classNames(
         "flex items-center justify-start flex-wrap dir-ltr",
-        "bg-gray-200 text-gray-700 border-0 px-4 py-2 rounded-md"
+        "bg-gray-200 text-gray-700 border-0 px-4 py-2 rounded-md",
       ),
     },
     pageButton: ({ context }: any) => ({
@@ -65,7 +65,7 @@ export const tablePT: DataTablePassThroughOptions = {
         "transition duration-200",
         {
           "bg-gray-300": context.active,
-        }
+        },
       ),
     }),
     prevPageButton: ({ context }: any) => ({
@@ -75,7 +75,7 @@ export const tablePT: DataTablePassThroughOptions = {
         "transition duration-200",
         {
           "cursor-default pointer-events-none opacity-60": context.disabled,
-        }
+        },
       ),
     }),
     nextPageButton: ({ context }: any) => ({
@@ -85,7 +85,7 @@ export const tablePT: DataTablePassThroughOptions = {
         "transition duration-200",
         {
           "cursor-default pointer-events-none opacity-60": context.disabled,
-        }
+        },
       ),
     }),
     firstPageButton: ({ context }: any) => ({
@@ -95,7 +95,7 @@ export const tablePT: DataTablePassThroughOptions = {
         "transition duration-200",
         {
           "cursor-default pointer-events-none opacity-60": context.disabled,
-        }
+        },
       ),
     }),
     lastPageButton: ({ context }: any) => ({
@@ -105,7 +105,7 @@ export const tablePT: DataTablePassThroughOptions = {
         "transition duration-200",
         {
           "cursor-default pointer-events-none opacity-60": context.disabled,
-        }
+        },
       ),
     }),
   },

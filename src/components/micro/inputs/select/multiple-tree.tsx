@@ -1,14 +1,14 @@
-import { classNames } from "@/utils";
-import { useState } from "react";
-import { SelectItem, TreeSelectItem } from "./types";
-import { RecursiveSelectItem } from "./comps/recursive-select-item";
+import { classNames, nestedSearch } from "@/utils";
+import { useEffect, useState } from "react";
+import { TreeSelectItem } from "./types";
 import SelectContainer, { SelectContainerProps } from "./container";
+import { RecursiveSelectItem } from "./comps/recursive-select-item";
+import { flattenData } from "./utils";
 
 export type MultiSelectTreeProps = SelectContainerProps & {
   options?: TreeSelectItem[];
-  onChange?: (event: { value: any }) => void;
-  value?: any;
-  selected?: any[];
+  onChange?: (value: (string | number)[]) => void;
+  selected?: (string | number)[];
   className?: {
     panelBody?: string;
   };
@@ -18,9 +18,18 @@ export default function MultiSelectTree(props: MultiSelectTreeProps) {
   const [selected, setSelected] = useState<(number | string)[]>(props.selected || []);
   const [opened, setOpened] = useState<(number | string)[]>(props.selected || [0]);
   const [data, setData] = useState<TreeSelectItem[] | undefined>(props.options);
+  const [open, setOpen] = useState(false);
   const showChips = selected.length > 0 && props.showChips;
   const flatData = flattenData(props.options || []);
-  const selectedOptions = flatData?.filter((x) => selected.includes(x.value));
+  const selectedOptions = flatData?.filter((x) => selected.includes(x.value) && x.parentId);
+
+  useEffect(() => {
+    setData(props.options);
+  }, [props.options]);
+
+  useEffect(() => {
+    setSelected(props.selected || []);
+  }, [props.selected]);
 
   function handleChange(option: TreeSelectItem, active?: boolean) {
     const hasChildren = option.children?.length;
@@ -34,7 +43,7 @@ export default function MultiSelectTree(props: MultiSelectTreeProps) {
       newSelected = deselectChildren(option, newSelected);
     }
     setSelected(newSelected);
-    props.onChange && props.onChange({ value: newSelected });
+    props.onChange && props.onChange(newSelected);
   }
 
   function selectChildren(option: TreeSelectItem, selected: (number | string)[]) {
@@ -68,48 +77,30 @@ export default function MultiSelectTree(props: MultiSelectTreeProps) {
   }
 
   function handleSearch(text?: string) {
-    if (text) {
-      const newData = props.options?.flatMap((option) => searchChildren(text, option));
-      setData(newData);
-    } else {
-      setData(props.options);
-    }
-    function searchChildren(text: string, option: TreeSelectItem) {
-      let hasText = `${option.label}`.includes(text);
-      if (hasText) return option;
-      if (!hasText && option.children?.length) {
-        const children = option.children.flatMap((child) => searchChildren(text, child));
-        const res: TreeSelectItem = { ...option, children };
-        if (!children?.length) return [];
-        else return res;
-      }
-      return [];
-    }
+    if (!props.options) return;
+    const newData = nestedSearch(props.options, "label", text);
+    setData(newData);
   }
 
   function handleClear() {
     setSelected([]);
-    props.onChange && props.onChange({ value: [] });
+    props.onChange && props.onChange([]);
   }
 
   let depth = 0;
   return (
     <SelectContainer
       {...props}
-      onRemove={handleChange}
-      onRemoveAll={() => setSelected([])}
       count={selected.length}
       chips={selectedOptions}
       showChips={showChips}
       onClear={handleClear}
       onSearch={handleSearch}
+      onRemove={handleChange}
+      open={open}
+      onOpenChange={(e) => setOpen(e)}
     >
-      <ul
-        className={classNames(
-          "flex flex-col max-h-[350px] min-h-[350px] overflow-y-auto w-full",
-          props.className?.panelBody
-        )}
-      >
+      <ul className={classNames("flex max-h-60 min-h-60 w-full flex-col overflow-y-auto", props.className?.panelBody)}>
         {data?.map((option, index, a) => {
           return (
             <RecursiveSelectItem
@@ -127,24 +118,4 @@ export default function MultiSelectTree(props: MultiSelectTreeProps) {
       </ul>
     </SelectContainer>
   );
-}
-
-export function flattenData(data: TreeSelectItem[]) {
-  const newData: (SelectItem & { parentId?: string | number; last?: boolean })[] = [];
-  for (const option of data) {
-    const o = { ...option, last: !option.children?.length };
-    delete o.children;
-    newData.push(o);
-    recursive(option);
-  }
-  function recursive(option: TreeSelectItem) {
-    if (!option.children?.length) return;
-    for (const child of option.children) {
-      const c = { ...child, parentId: option.value, last: !child.children?.length };
-      delete c.children;
-      newData.push(c);
-      if (child.children?.length) recursive(child);
-    }
-  }
-  return newData;
 }

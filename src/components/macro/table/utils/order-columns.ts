@@ -1,4 +1,4 @@
-import { ColumnProps } from "../types";
+import { ColumnProps } from "@table/types";
 
 export default function orderColumns(columns: ColumnProps[], ordered: string[]) {
   let index = 0;

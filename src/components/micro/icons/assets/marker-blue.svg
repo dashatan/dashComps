@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44" height="50" viewBox="0 0 44 50">
+  <defs>
+    <filter id="Polygon_130" x="8" y="22" width="29" height="28" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Ellipse_408" x="0" y="0" width="44" height="44" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_9024" data-name="Group 9024" transform="translate(9 9)">
+    <g transform="matrix(1, 0, 0, 1, -9, -9)" filter="url(#Polygon_130)">
+      <path id="Polygon_130-2" data-name="Polygon 130" d="M4.624,1.593a1,1,0,0,1,1.752,0l3.809,6.925A1,1,0,0,1,9.309,10H1.691A1,1,0,0,1,.815,8.518Z" transform="translate(28 41) rotate(180)" fill="#477aeb"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, -9, -9)" filter="url(#Ellipse_408)">
+      <circle id="Ellipse_408-2" data-name="Ellipse 408" cx="13" cy="13" r="13" transform="translate(9 9)" fill="#477aeb"/>
+    </g>
+    <g id="vuesax_bulk_video" data-name="vuesax/bulk/video" transform="translate(6.294 5.977)">
+      <g id="video" transform="translate(0 0)">
+        <path id="Vector" d="M6.013,0H2.657C.744,0,0,.744,0,2.657V7.131A2.469,2.469,0,0,0,2.657,9.788H6.013c1.913,0,2.657-.744,2.657-2.657V2.657C8.669.744,7.926,0,6.013,0Z" transform="translate(1.258 1.818)" fill="#fff" opacity="0.4"/>
+        <path id="Vector-2" data-name="Vector" d="M2.1,1.052A1.052,1.052,0,1,1,1.052,0,1.052,1.052,0,0,1,2.1,1.052Z" transform="translate(5.381 4.262)" fill="#fff"/>
+        <path id="Vector-3" data-name="Vector" d="M2.193.113A1.27,1.27,0,0,0,.828.32L0,.9c.006.078.011.151.011.235V5.612C.011,5.7,0,5.768,0,5.846l.828.582a1.539,1.539,0,0,0,.889.324,1.023,1.023,0,0,0,.475-.112A1.262,1.262,0,0,0,2.808,5.4V1.35A1.262,1.262,0,0,0,2.193.113Z" transform="translate(9.917 3.338)" fill="#fff"/>
+        <path id="Vector-4" data-name="Vector" d="M0,0H13.424V13.424H0Z" fill="none" opacity="0"/>
+      </g>
+    </g>
+  </g>
+</svg>

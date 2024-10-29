@@ -1,7 +1,7 @@
 import { memo, useCallback } from "react";
-import { ChangeTag, ColumnProps, TableData } from "../../types";
 import { classNames } from "@/utils";
-import filterElements from "../filter";
+import { ChangeTag, ColumnProps, FilterValue, TableData } from "@table/types";
+import filterElements from "@table/components/filter";
 
 export interface FilterProps {
   col: ColumnProps;
@@ -17,7 +17,7 @@ export const Filter = memo(({ col, values, onchange, loading }: FilterProps) => 
   const FilterEl = filterElements[type];
 
   const handleChange = useCallback(
-    (value: string) => {
+    (value: FilterValue) => {
       if (loading) return;
       if (col.field) {
         const newFilters = { ...filters, [col.field]: value };
@@ -41,7 +41,7 @@ export const Filter = memo(({ col, values, onchange, loading }: FilterProps) => 
       ) : FilterEl ? (
         <FilterEl
           onChange={handleChange}
-          defaultValue={value as string}
+          defaultValue={value}
           options={options}
           className={col.filterClassName}
           inputProps={{ disabled: loading, ...col.filterProps }}

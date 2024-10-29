@@ -77,7 +77,7 @@ export default function MultiSelectOrderable(props: MultiSelectDNDProps) {
 
   function HeaderTemplate() {
     return (
-      <div className="flex items-center justify-between gap-10 p-2 border-b border-gray-100">
+      <div className="flex items-center justify-between gap-10 p-2 border-b border-gray-200">
         <div className="flex flex-col">
           <span className="text-base font-semibold text-gray-700">{props.heading}</span>
           <span className="text-xs font-light text-gray-500">{props.subHeading}</span>
@@ -97,7 +97,7 @@ export default function MultiSelectOrderable(props: MultiSelectDNDProps) {
       count={selected.length}
       headerTemplate={<HeaderTemplate />}
     >
-      <div className="relative flex flex-col w-full h-full p-2 rounded-md text-gray-70">
+      <div className="relative flex flex-col w-full h-full max-h-[400px] overflow-auto p-2 rounded-md text-gray-70">
         {data?.map((item) => {
           const active = selected.includes(item.value);
           const hidden = dragItem.current === item.value;
@@ -109,9 +109,12 @@ export default function MultiSelectOrderable(props: MultiSelectDNDProps) {
               onDragStart={handleDragStart}
               onDragEnter={handleDragEnter}
               onDragEnd={handleDrop}
-              className={classNames("flex items-center [&_span]:hover:opacity-100 hover:bg-slate-100 rounded-md h-10", {
-                "opacity-0": hidden,
-              })}
+              className={classNames(
+                "flex items-center [&_span]:hover:opacity-100 hover:bg-gray-200 rounded-md min-h-10",
+                {
+                  "opacity-0": hidden,
+                }
+              )}
             >
               <span className="transition-all opacity-100 cursor-grab">
                 <GripVertical className="text-gray-300" />

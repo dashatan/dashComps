@@ -1,27 +1,28 @@
-import { classNames } from "@/utils";
 import { useEffect, useRef, useState } from "react";
 import Checkbox from "@inputs/checkbox/checkbox";
 import { SelectItem } from "./types";
 import SelectContainer, { SelectContainerProps } from "./container";
 import EmptyTemplate from "./comps/empty";
+import List from "../list";
 
 export type MultiSelectProps = SelectContainerProps & {
   options?: SelectItem[];
-  onChange?: (event: { value: any }) => void;
-  value?: any;
-  selected?: any[];
+  onChange?: (value: (string | number)[]) => void;
+  selected?: (string | number)[];
+  onReachBottom?: () => void;
+  itemTemplate?: (option: any) => React.ReactNode;
   className?: {
     panelBody?: string;
+    item?: string;
   };
 };
 
 export default function MultiSelect(props: MultiSelectProps) {
-  const optionsContainer = useRef<HTMLDivElement>(null);
-  const selectedItems = useRef<(HTMLDivElement | undefined)[]>([]);
   const [selected, setSelected] = useState<any[]>(props.selected || []);
   const [data, setData] = useState(props.options);
   const showChips = selected.length > 0 && props.showChips;
   const selectedOptions = props.options?.filter((x) => selected.includes(x.value));
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     setSelected(props.selected || []);
@@ -35,7 +36,7 @@ export default function MultiSelect(props: MultiSelectProps) {
     let res = [...selected, option.value];
     if (selected.includes(option.value)) res = selected.filter((y) => y !== option.value);
     setSelected(res);
-    props.onChange && props.onChange({ value: res });
+    props.onChange && props.onChange(res);
   }
 
   function handleSearch(text?: string) {
@@ -49,8 +50,9 @@ export default function MultiSelect(props: MultiSelectProps) {
 
   function handleClear() {
     setSelected([]);
-    props.onChange && props.onChange({ value: [] });
+    props.onChange && props.onChange([]);
   }
+
   return (
     <SelectContainer
       {...props}
@@ -58,32 +60,36 @@ export default function MultiSelect(props: MultiSelectProps) {
       showChips={showChips}
       chips={selectedOptions}
       onRemove={handleChange}
-      onRemoveAll={() => setSelected([])}
       onClear={handleClear}
       onSearch={handleSearch}
+      open={open}
+      onOpenChange={(e) => setOpen(e)}
     >
-      <div
-        ref={optionsContainer}
-        className={classNames("flex flex-col max-h-80 min-h-20 overflow-y-auto w-full", props.className?.panelBody)}
-      >
-        {data?.length ? (
-          data?.map((option, index) => {
+      {data?.length ? (
+        <List
+          value={data.find((x) => selected.includes(x.value))?.value}
+          onChange={handleChange}
+          onReachBottom={props.onReachBottom}
+          itemTemplate={(option) => {
             const active = selected.includes(option.value);
             return (
               <Checkbox
-                key={index}
-                ref={(el) => (el ? (selectedItems.current[index] = active ? el : undefined) : undefined)}
-                title={option.label}
+                title={!props.itemTemplate ? option.label : undefined}
+                titleTemplate={props.itemTemplate && props.itemTemplate(option)}
                 active={active}
                 onChange={() => handleChange(option)}
                 className={{ container: "hover:bg-gray-200 rounded-none items-center", title: "text-sm" }}
               />
             );
-          })
-        ) : (
-          <EmptyTemplate />
-        )}
-      </div>
+          }}
+          itemClassName={props.className?.item}
+          className={props.className?.panelBody}
+          data={data}
+          loading={props.loading}
+        />
+      ) : (
+        <EmptyTemplate />
+      )}
     </SelectContainer>
   );
 }

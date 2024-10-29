@@ -3,20 +3,25 @@ import FilterSelectElement from "./select";
 import FilterMultiSelectElement from "./multi-select";
 import FilterDateElement from "./date";
 import { SelectItem } from "@inputs/select/types";
+import FilterPlateElement from "./plate";
+import FilterTreeMultiSelectElement from "./tree-multi-select";
+import { FilterValue } from "@/components/macro/table/types";
 
 const filterElements = {
+  "": undefined,
   text: FilterTextElement,
   date: FilterDateElement,
   select: FilterSelectElement,
   "multi-select": FilterMultiSelectElement,
-  "": undefined,
+  tree: FilterTreeMultiSelectElement,
+  plate: FilterPlateElement,
 };
 
 export type FilterElementsKeys = keyof typeof filterElements;
 export interface FilterElementProps {
-  onChange?: (value: string) => void;
+  onChange?: (value: FilterValue) => void;
   options?: SelectItem[];
-  defaultValue?: string;
+  defaultValue?: FilterValue;
   className?: any;
   inputProps?: any;
 }

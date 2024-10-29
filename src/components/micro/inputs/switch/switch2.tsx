@@ -1,6 +1,5 @@
 import { classNames } from "@/utils";
-import { useEffect, useState } from "react";
-import { Icon } from "../../icons";
+import { useState } from "react";
 import { Check } from "lucide-react";
 
 export interface SwitchProps {

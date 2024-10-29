@@ -7,16 +7,18 @@ export default function FilterMultiSelectElement(props: FilterElementProps) {
       {...props}
       className={{
         popoverTrigger: "w-full",
-        container: "!h-10",
-        labelContent: "!h-10 !py-0 text-sm",
+        container: "h-10",
+        labelContent: "h-10 py-0 text-sm",
         ...props.className,
       }}
-      onChange={(e) => props.onChange && props.onChange(e.value.join(","))}
+      onChange={(val) => {
+        props.onChange && props.onChange(val);
+      }}
       options={props.options}
-      selected={typeof props.defaultValue === "string" ? props.defaultValue?.split(",") : undefined}
+      selected={props.defaultValue}
       labelType="count"
+      fitContent
       filter
-      hideMessage
       {...props.inputProps}
     />
   );

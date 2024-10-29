@@ -1,7 +1,7 @@
 import { useFormContext } from "react-hook-form";
-import { TableData, constants } from "../../types";
 import Button from "@/components/micro/buttons/button";
-import { Plus, X } from "lucide-react";
+import { X } from "lucide-react";
+import { TableData, constants } from "@/components/macro/table/types";
 
 export default function ClearTable({ onChange }: { onChange?: (data: TableData) => void }) {
   const table = useFormContext<TableData>();

@@ -2,9 +2,10 @@ import { classNames } from "@/utils";
 import { forwardRef, useEffect, useState } from "react";
 import { Check, Loader2, Minus } from "lucide-react";
 
-interface CheckboxProps {
+export interface CheckboxProps {
   title?: string;
   subTitle?: string;
+  titleTemplate?: React.ReactNode;
   active?: boolean;
   halfChecked?: boolean;
   withoutTitle?: boolean;
@@ -37,7 +38,10 @@ const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>((props, ref) => {
   return (
     <div
       ref={ref}
-      onClick={handleClick}
+      onClick={(e) => {
+        e.stopPropagation();
+        handleClick();
+      }}
       className={classNames(
         "w-full rounded-lg cursor-pointer select-none",
         "flex items-start transition-all duration-100",
@@ -54,7 +58,8 @@ const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>((props, ref) => {
           "flex items-center justify-center transition-all duration-100",
           {
             "border-primary-600 bg-primary-600": active || props.halfChecked,
-            "border-gray-300": !active,
+            "border-gray-300": !active && !props.halfChecked,
+            "bg-gray-200 border-gray-300": props.disabled,
           },
           props.className?.iconContainer
         )}
@@ -71,7 +76,7 @@ const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>((props, ref) => {
             )}
           />
         ) : props.halfChecked ? (
-          <Minus className={classNames("w-3 text-white", props.className?.icon)} />
+          <Minus className={classNames("w-4 text-white", props.className?.icon)} />
         ) : (
           <Check
             className={classNames(
@@ -79,13 +84,14 @@ const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>((props, ref) => {
               {
                 "scale-110 text-slate-100": active,
                 "scale-0 text-primary-600": !active,
-                "opacity-50": props.disabled,
+                "text-gray-600": props.disabled,
               },
               props.className?.icon
             )}
           />
         )}
       </div>
+      {props.titleTemplate}
       {!props.withoutTitle && (
         <div className={classNames("flex flex-col py-4", props.className?.titleContainer)}>
           <span className={classNames("text-base font-semibold", props.className?.title)}>{props.title}</span>

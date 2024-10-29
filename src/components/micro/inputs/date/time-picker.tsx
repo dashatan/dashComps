@@ -1,8 +1,6 @@
 import { classNames } from "@/utils";
-import { Icon } from "../../icons";
-import BasicNumberInput from "../number/basic";
+import BasicNumberInput, { BasicNumberInputProps } from "../number/basic";
 import { useEffect, useRef, useState } from "react";
-import { InputNumberProps } from "primereact/inputnumber";
 
 export interface TimeObject {
   hour: number;
@@ -45,53 +43,47 @@ export default function TimePicker(props: TimePickerProps) {
   }
 
   return (
-    <div className="flex items-center justify-between min-h-[40px] dir-ltr">
+    <div className="flex min-h-[40px] w-full items-center justify-between dir-ltr">
       <Input
         value={values2.hour}
         max={23}
-        onChange={(e) => handleChange(e.value || 0, "hour", 23)}
-        {...{ inputClassName }}
+        onChange={(e) => handleChange(e || 0, "hour", 23)}
+        className={inputClassName}
       />
       <span className="mx-2 text-2xl font-bold">:</span>
       <Input
         value={values2.minute}
         max={59}
-        onChange={(e) => handleChange(e.value || 0, "minute", 59)}
-        {...{ inputClassName }}
+        onChange={(e) => handleChange(e || 0, "minute", 59)}
+        className={inputClassName}
       />
-      {props.withSecond && (
+      {/* {props.withSecond && (
         <>
           <span className="mx-2 text-2xl font-bold">:</span>
           <Input
             value={values2.second}
             max={59}
-            onChange={(e) => handleChange(e.value || 0, "second", 59)}
-            {...{ inputClassName }}
+            onChange={(e) => handleChange(e || 0, "second", 59)}
+            className={inputClassName}
           />
         </>
-      )}
+      )} */}
     </div>
   );
 }
 
-function Input(props: InputNumberProps) {
+function Input(props: BasicNumberInputProps) {
   const ref = useRef<HTMLInputElement>(null);
   return (
     <BasicNumberInput
-      ref={ref}
       {...props}
-      className="flex flex-col overflow-hidden border border-gray-300 rounded-md dir-ltr"
-      inputClassName={classNames("order-2 text-center", props.inputClassName)}
-      //   showButtons
-      unstyled
-      buttonLayout="vertical"
-      useGrouping={false}
+      ref={ref}
+      className={classNames(
+        "flex w-full flex-col overflow-hidden rounded-md border border-gray-300 text-center dir-ltr",
+        props.className,
+      )}
       min={0}
-      incrementButtonClassName={classNames("bg-gray-200 text-gray-700 h-6 order-1")}
-      decrementButtonClassName={classNames("bg-gray-100 text-gray-700 h-6 order-3")}
-      incrementButtonIcon={<Icon icon="Plus" className="scale-50" />}
-      decrementButtonIcon={<Icon icon="Minus" className="scale-50" />}
-      onClick={(e) => ref.current?.select()}
+      onClick={() => ref.current?.select()}
     />
   );
 }

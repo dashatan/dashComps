@@ -1,12 +1,12 @@
 import { classNames } from "@/utils";
 import { forwardRef } from "react";
-import Button from "../buttons/button";
-import { Cross, Plus } from "lucide-react";
+import { X } from "lucide-react";
 
 export interface ChipProps extends DIV {
   label?: string;
   name?: string;
-  onRemove?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  template?: React.ReactNode;
+  onRemove?: () => void;
 }
 
 const Chip = forwardRef<HTMLDivElement, ChipProps>((props, ref) => {
@@ -15,22 +15,22 @@ const Chip = forwardRef<HTMLDivElement, ChipProps>((props, ref) => {
       ref={ref}
       {...props}
       className={classNames(
-        "flex items-center justify-between gap-4 p-1 rounded-md min-w-fit",
-        "bg-slate-200 text-gray-600 text-xs overflow-hidden text-ellipsis",
+        "flex items-center justify-between gap-2 p-1.5 rounded-[4px] min-w-fit min-h-7",
+        "bg-slate-200 text-gray-600 text-xs",
         props.className
       )}
     >
       <span>{props.label}</span>
-      <Button
-        variant="contained"
-        size="xs"
-        severity="info"
-        rounded="circle"
-        className="w-5 min-w-5 h-5 !p-0"
-        onClick={props.onRemove}
+      {props.template}
+      <div
+        className="w-4 h-4 bg-slate-500 text-slate-50 rounded-full cursor-pointer flex items-center justify-center"
+        onClick={(e) => {
+          e.stopPropagation();
+          props.onRemove && props.onRemove();
+        }}
       >
-        <Plus className="rotate-45 w-4 min-w-4" />
-      </Button>
+        <X className="w-3" />
+      </div>
     </div>
   );
 });

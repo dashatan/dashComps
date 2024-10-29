@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="31" height="17" viewBox="0 0 31 17">
+  <defs>
+    <clipPath id="clip-path">
+      <rect y="1" width="30" height="14" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect x="1" y="1" width="16" height="8" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_23048" data-name="Group 23048" transform="translate(-1220 -36)">
+    <g id="Group_23046" data-name="Group 23046" transform="translate(559 -7)">
+      <g id="Rectangle_12044" data-name="Rectangle 12044" transform="translate(661 47)" fill="#fff" stroke="#111827" stroke-width="1">
+        <rect width="29" height="12" rx="2" stroke="none"/>
+        <rect x="0.5" y="0.5" width="28" height="11" rx="1.5" fill="none"/>
+      </g>
+      <g id="Scroll_Group_4" data-name="Scroll Group 4" transform="translate(661 45)" clip-path="url(#clip-path)" style="isolation: isolate">
+        <g id="Scroll_Group_5" data-name="Scroll Group 5" transform="translate(5.5 3)" clip-path="url(#clip-path-2)" style="isolation: isolate">
+          <text id="_" data-name="***" transform="translate(9 10)" fill="#111827" font-size="10" font-family="PeydaFaNum-Bold, 'Peyda\(FaNum\)'" font-weight="700"><tspan x="-8.685" y="0">***</tspan></text>
+        </g>
+      </g>
+    </g>
+    <g id="Group_23052" data-name="Group 23052" transform="translate(2)">
+      <g id="Ellipse_887" data-name="Ellipse 887" transform="translate(1241 36)" fill="#fff" stroke="#111827" stroke-width="1">
+        <circle cx="4" cy="4" r="4" stroke="none"/>
+        <circle cx="4" cy="4" r="3.5" fill="none"/>
+      </g>
+      <g id="Group_23047" data-name="Group 23047" transform="translate(22.669 6.669)">
+        <line id="Line_4485" data-name="Line 4485" x1="3" y2="3" transform="translate(1220.831 31.831)" fill="none" stroke="#111827" stroke-width="1"/>
+        <line id="Line_4486" data-name="Line 4486" x2="3" y2="3" transform="translate(1220.831 31.831)" fill="none" stroke="#111827" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>

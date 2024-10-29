@@ -1,6 +1,6 @@
 import { classNames } from "@/utils";
 import SkeletonField from "./skeleton";
-import { ColumnProps } from "../../types";
+import { ColumnProps } from "@/components/macro/table/types";
 import { memo } from "react";
 
 export interface TDProps {
@@ -13,7 +13,7 @@ export interface TDProps {
 }
 
 const TD = memo(function TD({ data, rowIndex, col, loading, children, className }: TDProps) {
-  const showSkeleton = loading && col.body && col.field;
+  const showSkeleton = loading && (col.body || col.bodyElement);
   let { body } = col;
   let Body = <></>;
   if (showSkeleton) {
@@ -28,17 +28,19 @@ const TD = memo(function TD({ data, rowIndex, col, loading, children, className 
   }
   return (
     <td
-      className={classNames("border-b border-slate-300 bg-gray-50 overflow-hidden", className)}
+      className={classNames(
+        "overflow-hidden border-b border-slate-300",
+        {
+          "pointer-events-none": loading,
+        },
+        className,
+      )}
       style={{
         ...(col.frozen && { position: "sticky", [col.frozen.pos]: col.frozen.distance, zIndex: 1 }),
       }}
     >
       {children || (
-        <div
-          className={classNames("text-gray-700 text-right py-4 px-4 text-base font-medium cursor-default", " w-full")}
-        >
-          {Body}
-        </div>
+        <div className={classNames("px-4 py-4 text-right text-base font-medium text-gray-700", "w-full")}>{Body}</div>
       )}
     </td>
   );

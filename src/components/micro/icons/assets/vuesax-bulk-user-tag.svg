@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40.002" height="40.002" viewBox="0 0 40.002 40.002">
+  <g id="vuesax_bulk_user-tag" data-name="vuesax/bulk/user-tag" transform="translate(-556 -188)">
+    <g id="user-tag" transform="translate(556 188)">
+      <path id="Vector" d="M0,0H40V40H0Z" fill="none" opacity="0"/>
+      <path id="Vector-2" data-name="Vector" d="M25,28.085H23.734a4.98,4.98,0,0,0-3.533,1.45l-2.85,2.817a3.371,3.371,0,0,1-4.717,0l-2.85-2.817a5.008,5.008,0,0,0-3.533-1.45H5a4.972,4.972,0,0,1-5-4.95V4.95A4.972,4.972,0,0,1,5,0H25a4.972,4.972,0,0,1,5,4.95V23.134A4.983,4.983,0,0,1,25,28.085Z" transform="translate(5 3.35)" fill="#9ca3af" opacity="0.4"/>
+      <g id="Group" transform="translate(13.859 9.584)">
+        <path id="Vector-3" data-name="Vector" d="M7.767,3.884A3.884,3.884,0,1,1,3.884,0,3.883,3.883,0,0,1,7.767,3.884Z" transform="translate(2.258)" fill="#9ca3af"/>
+        <path id="Vector-4" data-name="Vector" d="M10.608,5.434a1.674,1.674,0,0,0,1.383-2.617A7.015,7.015,0,0,0,6.142,0,7.015,7.015,0,0,0,.291,2.817,1.674,1.674,0,0,0,1.675,5.434Z" transform="translate(0 10.084)" fill="#9ca3af"/>
+      </g>
+    </g>
+  </g>
+</svg>

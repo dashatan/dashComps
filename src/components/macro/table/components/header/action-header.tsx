@@ -2,17 +2,19 @@ import { classNames } from "@/utils";
 import Button from "@/components/micro/buttons/button";
 import { Icon } from "@/components/micro/icons";
 import Badge from "@/components/micro/badge/badge";
-import { Settings } from "lucide-react";
-import { orderColumnsWithoutHide } from "../../utils/order-columns";
+import { Settings, X } from "lucide-react";
 import { memo, useState } from "react";
 import { useFormContext, useWatch } from "react-hook-form";
-import { ColumnProps, TableData, TableProps, constants } from "../../types";
 import { Pagination } from "./pagination";
 import { SelectItem, TableHeaderChangeEvent } from "@/components/micro/inputs/select/types";
 import { Select } from "@/components/micro/inputs/select";
+import { SelectProps } from "@/components/micro/inputs/select/single";
+import { ColumnProps, TableData, TableProps, constants } from "@/components/macro/table/types";
+import { orderColumnsWithoutHide } from "@/components/macro/table/utils/order-columns";
 
 export interface ActionHeaderProps {
   bulkActionsOptions?: (SelectItem & { onChange?: (value: any, table?: any) => void })[];
+  bulActionsProps?: SelectProps;
   firstExtraElements?: React.ReactNode;
   secondExtraElements?: React.ReactNode;
   totalSelected?: number;
@@ -22,6 +24,7 @@ export interface ActionHeaderProps {
   onChange?: TableProps["onTableChange"];
   loading?: boolean;
   hideBulkActions?: boolean;
+  hideFilter?: boolean;
 }
 
 function ActionHeaderFunction(props: ActionHeaderProps) {
@@ -53,7 +56,7 @@ function ActionHeaderFunction(props: ActionHeaderProps) {
   }
 
   return (
-    <div className="flex flex-row-reverse flex-wrap items-center justify-between w-full px-4 border-t border-b border-gray-200">
+    <div className="flex w-full flex-row-reverse flex-wrap items-center justify-between border-b border-t border-gray-200 px-4">
       <div className="flex flex-row-reverse flex-wrap items-center gap-2">
         <Pagination
           loading={props.loading}
@@ -61,7 +64,6 @@ function ActionHeaderFunction(props: ActionHeaderProps) {
           onchange={(data, tag) => props.onChange && props.onChange(data, tag)}
         />
         <Select.Single
-          hideMessage
           className={{ item: "!p-2" }}
           label="تعداد نمایش"
           value={rows || constants.rows}
@@ -80,21 +82,24 @@ function ActionHeaderFunction(props: ActionHeaderProps) {
 
         {!props.hideBulkActions && (
           <Select.Single
-            hideMessage
+            {...props.bulActionsProps}
             label="اقدام گروهی"
             options={props.bulkActionsOptions}
             fitContent
+            noneVirtualized
+            noValueChange
+            className={{ item: "p-0" }}
             itemTemplate={(option) => {
               return (
                 <li
                   className={classNames(
-                    "flex items-center gap-2 p-2 border-b border-gray-200",
-                    "hover:bg-gray-100 text-gray-600 cursor-pointer text-sm font-medium ",
-                    option.className
+                    "flex items-center gap-2 border-b border-gray-200 p-2",
+                    "cursor-pointer text-sm font-medium text-gray-600 hover:bg-gray-200",
+                    option.className,
                   )}
                   onClick={() => option.onChange && option.onChange(option.value, table)}
                 >
-                  <span className="flex justify-center w-8 scale-75">{option.icon}</span>
+                  <span className="flex w-8 scale-75 justify-center">{option.icon}</span>
                   <span>{option.label}</span>
                 </li>
               );
@@ -103,10 +108,9 @@ function ActionHeaderFunction(props: ActionHeaderProps) {
         )}
         <Select.MultiOrderable
           options={columnsOptions}
-          hideMessage
           labelTemplate={
             <Button variant="outlined" severity="info" className="h-14 w-14 [&_*]:fill-none">
-              <Settings className="w-6 h-6 text-gray-700" />
+              <Settings className="h-6 w-6 text-gray-700" />
             </Button>
           }
           onChange={handleColumnsOrder}
@@ -117,30 +121,36 @@ function ActionHeaderFunction(props: ActionHeaderProps) {
           fitContent
           reorder={reorder}
           setReorder={setReorder}
+          className={{ popoverContent: "min-w-56" }}
         />
 
-        <Button
-          variant="outlined"
-          severity="info"
-          className="h-14 w-14 [&_*]:fill-none"
-          onClick={() => {
-            onChange && onChange({ ...state, showFilter: !state.showFilter }, "filter");
-            table.setValue("showFilter", !state.showFilter);
-          }}
-        >
-          <Icon icon="Search2" className="[&_*]:stroke-gray-700" />
-        </Button>
+        {!props.hideFilter && (
+          <Button
+            variant="outlined"
+            severity="info"
+            className="h-14 w-14 [&_*]:fill-none"
+            onClick={() => {
+              onChange && onChange({ ...state, showFilter: !state.showFilter }, "filter");
+              table.setValue("showFilter", !state.showFilter);
+            }}
+          >
+            <Icon icon="Search2" className="[&_*]:stroke-gray-700" />
+          </Button>
+        )}
         {props.firstExtraElements}
       </div>
-      <div className="flex items-center h-full">
-        <div className="flex items-center justify-center w-20 h-20 border-l border-gray-200">
-          {totalSelected ? (
-            <Badge>
-              <span className="px-2 mt-1">{totalSelected}</span>
+      <div className="flex items-center">
+        <div className="flex h-20 w-20 items-center justify-center border-e border-gray-200">
+          <div onClick={() => table.setValue("selected", [])}>
+            <Badge
+              className={classNames("min-w-11 cursor-pointer justify-center pl-1 pr-2", {
+                "bg-gray-400 opacity-60": !totalSelected,
+              })}
+            >
+              <span className="me-px mt-[1px]">{totalSelected || 0}</span>
+              <X className="w-3.5" />
             </Badge>
-          ) : (
-            <></>
-          )}
+          </div>
         </div>
         {props.secondExtraElements}
       </div>
